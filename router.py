@@ -1,11 +1,11 @@
 class Router:
     "define router attributes"
-
-    def __init__(self, brand, model, hostname, interfaces):
-        self.brand = brand
-        self.model = model
-        self.hostname = hostname
+    def __init__(self, brand, model, hostname):
+        self.brand = ""
+        self.model = ""
+        self.hostname = ""
         self.interfaces = {}
 
-    def add_interface(self, intf):
-        self.interfaces[intf] = {'IP-Address' : 'unassigned', 'Status' : 'administratively down', 'Protocol' : 'down'}
+    def add_interface(self, inf):
+        "Add anoter interfaces to router"
+        self.interfaces[inf] = {'IP-Address' : 'unassigned', 'Status' : 'administratively down', 'Protocol' : 'down'}
