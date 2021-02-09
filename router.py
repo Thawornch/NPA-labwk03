@@ -16,3 +16,8 @@ class Router:
         for inf in self.interfaces:
             result += "%s\n" %inf
         return result
+    
+    def connect_to(self, inf1, router2, inf2):
+        "connect interface from router to router"
+        self.interfaces[inf1]['connect'] = [router2.hostname, inf2]
+        router2.interfaces[inf2]['connect'] = [self.hostname, inf1]

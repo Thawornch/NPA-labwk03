@@ -8,4 +8,5 @@ r1.add_interface("Gigabitethernet 0/0")
 r1.add_interface("Gigabitethernet 0/1")
 r1.add_interface("Gigabitethernet 0/2")
 
-print(r1.show_interfaces())
+r1.connect_to('G0/1', r2, 'G0/2')
+print(r1.connect_to())
