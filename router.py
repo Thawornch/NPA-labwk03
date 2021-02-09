@@ -21,3 +21,9 @@ class Router:
         "connect interface from router to router"
         self.interfaces[inf1]['connect'] = [router2.hostname, inf2]
         router2.interfaces[inf2]['connect'] = [self.hostname, inf1]
+    
+    def show_cdp(self):
+        result = ""
+        for inf in self.interfaces:
+            result += "%s interface %s connect to %s on interface %s" %(self.hostname, inf, self.interfaces[inf][0], self.interfaces[inf][1])
+        return result

@@ -30,5 +30,12 @@ def test_connect_to():
     r1.connect_to("Gigabitethernet 0/0", r2, "Gigabitethernet 0/1")
     assert r1.interfaces["Gigabitethernet 0/0"]['connect'] == ["R2", "Gigabitethernet 0/1"]
 
+def test_show_cdp():
+    r1,r2 = create_router()
+    r1.connect_to("Gigabitethernet 0/0", r2, "Gigabitethernet 0/1")
+    r1.connect_to("Gigabitethernet 0/2", r2, "Gigabitethernet 0/0")
+    assert r1.show_cdp() == "R1 interface Gigabitethernet 0/0 connect to R2 on interface Gigabitethernet 0/1\nR1 interface Gigabitethernet 0/2 connect to R2 on interface Gigabitethernet 0/0\n"
+
+
     
     
